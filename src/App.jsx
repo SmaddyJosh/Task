@@ -6,12 +6,17 @@ import './App.css';
 export default function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    setIsLoggedIn(false);
+  };
+
   return (
     <div className="app-container">
       {!isLoggedIn ? (
         <LoginForm onLoginSuccess={() => setIsLoggedIn(true)} />
       ) : (
-        <MovieForm />
+        <MovieForm onLogout={handleLogout} />
       )}
     </div>
   );

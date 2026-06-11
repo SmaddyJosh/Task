@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './LoginForm.css';
 
-export default function MovieForm() {
+export default function MovieForm({ onLogout }) {
   const [title, setTitle] = useState('');
   const [genre, setGenre] = useState('');
   const [statusMessage, setStatusMessage] = useState('');
@@ -76,6 +76,25 @@ export default function MovieForm() {
           <button type="submit" className="submit-btn">Save Movie</button>
           
         </form>
+
+        <div style={{ textAlign: 'center', marginTop: '25px' }}>
+          <button 
+            onClick={onLogout}
+            style={{
+              background: 'none',
+              border: 'none',
+              color: '#888',
+              fontSize: '14px',
+              fontWeight: '600',
+              cursor: 'pointer',
+              textDecoration: 'underline'
+            }}
+            onMouseOver={(e) => e.target.style.color = '#333'}
+            onMouseOut={(e) => e.target.style.color = '#888'}
+          >
+            Log Out
+          </button>
+        </div>
 
       </div>
     </div>

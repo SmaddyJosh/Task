@@ -142,3 +142,42 @@
   font-weight: 600;
   text-decoration: none;
 }
+
+.password-strength {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: -10px;
+  margin-bottom: 5px;
+}
+
+.strength-bars {
+  display: flex;
+  gap: 5px;
+  height: 4px;
+}
+
+.bar {
+  flex: 1;
+  background-color: #eee;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+.bar.active.s1 { background-color: #e74c3c; }
+.bar.active.s2 { background-color: #e67e22; }
+.bar.active.s3 { background-color: #f1c40f; }
+.bar.active.s4 { background-color: #2ecc71; }
+
+.strength-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-align: right;
+  transition: color 0.3s;
+}
+
+.strength-label.s0 { color: #999; }
+.strength-label.s1 { color: #e74c3c; }
+.strength-label.s2 { color: #e67e22; }
+.strength-label.s3 { color: #d4ac0d; }
+.strength-label.s4 { color: #27ae60; }

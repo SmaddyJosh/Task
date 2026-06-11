@@ -32,14 +32,26 @@ app.post('/api/signup', (req, res) => {
 
   db.query(query, [username, password], (err, result) => {
     if (err) return res.status(500).json({ message: 'Database error', error: err });
-    res.status(201).json({ message: 'User added successfully!' });
+    res.status(201).json({ message: 'User added successfully!', token: 'dummy-token-for-testing' });
   });
 });
 
 app.post('/api/login', (req, res) => {
-  res.status(200).json({
-    message: 'Login successful',
-    token: 'dummy-token-for-testing'
+  const { username, password } = req.body;
+
+  const query = 'SELECT * FROM users WHERE username = ? AND password_hash = ?';
+
+  db.query(query, [username, password], (err, results) => {
+    if (err) return res.status(500).json({ message: 'Database error', error: err });
+    
+    if (results.length === 0) {
+      return res.status(401).json({ message: 'Invalid username or password' });
+    }
+
+    res.status(200).json({
+      message: 'Login successful',
+      token: 'dummy-token-for-testing'
+    });
   });
 });
 
