@@ -10,10 +10,7 @@ export default function MovieForm({ onLogout }) {
 
   const fetchMovies = async () => {
     try {
-      const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:5000/api/movies', {
-        headers: { 'Authorization': `Bearer ${token}` }
-      });
+      const response = await fetch('http://localhost:5000/api/movies');
       if (response.ok) {
         const data = await response.json();
         setMovies(data);
@@ -32,7 +29,6 @@ export default function MovieForm({ onLogout }) {
     setStatusMessage('');
 
     try {
-      const token = localStorage.getItem('token');
       const method = editingId ? 'PUT' : 'POST';
       const url = editingId 
         ? `http://localhost:5000/api/movies/${editingId}` 
@@ -41,8 +37,7 @@ export default function MovieForm({ onLogout }) {
       const response = await fetch(url, {
         method,
         headers: { 
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify({ title, genre })
       });
@@ -74,10 +69,8 @@ export default function MovieForm({ onLogout }) {
     if (!window.confirm('Are you sure you want to delete this movie?')) return;
     
     try {
-      const token = localStorage.getItem('token');
       const response = await fetch(`http://localhost:5000/api/movies/${id}`, {
-        method: 'DELETE',
-        headers: { 'Authorization': `Bearer ${token}` }
+        method: 'DELETE'
       });
 
       if (response.ok) {
@@ -183,25 +176,6 @@ export default function MovieForm({ onLogout }) {
             )}
           </div>
 
-        </div>
-
-        <div style={{ textAlign: 'center', marginTop: '25px', borderTop: '1px solid #eee', paddingTop: '20px' }}>
-          <button
-            onClick={onLogout}
-            style={{
-              background: 'none',
-              border: 'none',
-              color: '#888',
-              fontSize: '14px',
-              fontWeight: '600',
-              cursor: 'pointer',
-              textDecoration: 'underline'
-            }}
-            onMouseOver={(e) => e.target.style.color = '#333'}
-            onMouseOut={(e) => e.target.style.color = '#888'}
-          >
-            Log Out
-          </button>
         </div>
 
       </div>
