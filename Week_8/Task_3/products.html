@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baking Supplies | Sweet Creations</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="brand-logo">Sweet Creations</div>
+            <button class="hamburger" id="hamburger" aria-label="Menu">&#9776;</button>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="products.html" class="active">Supplies</a></li>
+                <li><a href="training.html">Training</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h1 style="text-align: center; margin-bottom: 3rem;">Premium Baking Supplies</h1>
+        
+        <div class="grid-layout products-grid">
+            <!-- Product 1 -->
+            <article class="card">
+                <img src="baking_supplies.png" alt="Pro Whisk Set" class="card-img">
+                <div class="card-body">
+                    <h2 class="card-title">Pro Whisk Set</h2>
+                    <p class="text-muted">Stainless steel, ergonomic handle.</p>
+                    <span class="price">$24.99</span>
+                </div>
+            </article>
+
+            <!-- Product 2 -->
+            <article class="card">
+                <img src="baking_supplies.png" alt="Silicone Spatulas" class="card-img">
+                <div class="card-body">
+                    <h2 class="card-title">Silicone Spatulas</h2>
+                    <p class="text-muted">Heat-resistant, set of 3.</p>
+                    <span class="price">$18.50</span>
+                </div>
+            </article>
+
+            <!-- Product 3 -->
+            <article class="card">
+                <img src="baking_supplies.png" alt="Piping Bag Kit" class="card-img">
+                <div class="card-body">
+                    <h2 class="card-title">Piping Bag Kit</h2>
+                    <p class="text-muted">Reusable bags with 12 nozzles.</p>
+                    <span class="price">$32.00</span>
+                </div>
+            </article>
+
+            <!-- Product 4 -->
+            <article class="card">
+                <img src="baking_supplies.png" alt="Mixing Bowls" class="card-img">
+                <div class="card-body">
+                    <h2 class="card-title">Mixing Bowls</h2>
+                    <p class="text-muted">Non-slip base, set of 4 sizes.</p>
+                    <span class="price">$45.00</span>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Sweet Creations. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
